@@ -27,3 +27,28 @@ Route::post('/contact/submit', 'ContactController@submit'
   //  return Request::All(); //dd(обьект) выведет все в виде массива
 //}
 )->name('contactForm');
+Route::get(
+    '/contact/all',
+    'ContactController@allData'
+    )->name('contact-data');
+
+Route::get(
+    '/contact/all/{id}',
+    'ContactController@showFullMessage'
+    )->name('contact-data-full');
+
+Route::get(
+        '/contact/all/{id}/update',
+        'ContactController@updateMessage'
+        )->name('contact-update');
+
+Route::post(
+    '/contact/all/{id}/update',
+    'ContactController@updateMessageSubmit'
+    )->name('contact-update-submit');
+
+    Route::get(
+        '/contact/all/{id}/delete',
+        'ContactController@deleteMessage'
+        )->name('contact-delete');
+
